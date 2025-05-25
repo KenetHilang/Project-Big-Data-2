@@ -18,7 +18,7 @@ def send_csv_to_kafka(file_path, topic_name):
     producer.flush()
 
 if __name__ == '__main__':
-    csv_file_path = './data/financial_fraud_detection_dataset.csv'
+    csv_file_path = '../data/financial_fraud_detection_dataset.csv'
     kafka_topic = 'Fraud_Detection'
     send_csv_to_kafka(csv_file_path, kafka_topic)
     print(f"Data from '{csv_file_path}' sent to Kafka topic '{kafka_topic}'.")

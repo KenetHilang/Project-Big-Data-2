@@ -1,12 +1,24 @@
 # Project-Big-Data-2: Fraud Detection with Kafka
 
-This project implements a fraud detection system using Apache Kafka for real-time data streaming.
+## Group's Members
+| Name (Nama)           | Student ID (NRP)   |
+|----------------|--------------|
+| Rafael Jonathan Arnoldus  | 5027231006     |
+| Michael Kenneth Salim      | 5027231008     |
+| Nicholas Arya Kris Nugroho      | 5027231058     |
+
+
+This project implements a fraud detection system using Apache Kafka and Pyspark simulating real-time data streaming.
 
 ## Prerequisites
 
 - Docker and Docker Compose
 - Python 3.8+
+- UV for python packages
+   - use `pip install uv` to install uv, and then proceed with `uv sync`
 - Required Python packages: `kafka-python`
+
+**Dataset**: https://www.kaggle.com/datasets/aryan208/financial-transactions-dataset-for-fraud-detection
 
 ## Setup Instructions
 
@@ -19,9 +31,9 @@ docker-compose up -d
 ```
 
 This will start:
-- ZooKeeper (localhost:2181)
-- Kafka (localhost:9092)
-- Kafka UI (localhost:8080) - Optional web interface to monitor Kafka
+- ZooKeeper (localhost:22181)
+- Kafka (localhost:29092)
+
 
 ### 2. Verify Kafka is Running
 
@@ -31,18 +43,16 @@ You can check if the containers are running:
 docker ps
 ```
 
-You can also visit the Kafka UI at http://localhost:8080 in your browser.
-
 ### 3. Prepare Your Data
 
-Make sure your CSV file is available. The default name is `financial_fraud_detection_dataset.csv` and it should be placed in the project root.
+Make sure your CSV file is available. The default name is `financial_fraud_detection_dataset.csv` and it should be placed in the data directory.
 
 ### 4. Run the Consumer
 
 Open a terminal and start the consumer:
 
 ```bash
-python Consumer/consumer.py
+uv run Consumer/consumer.py
 ```
 
 The consumer will start and wait for messages.
@@ -52,7 +62,7 @@ The consumer will start and wait for messages.
 Open another terminal and start the producer:
 
 ```bash
-python Producer/producer.py
+uv run Producer/producer.py
 ```
 
 Or specify a different CSV file:
