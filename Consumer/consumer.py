@@ -1,9 +1,17 @@
 from kafka import KafkaConsumer
 import time
 import json
+import os
+import pandas as pd
+from datetime import datetime
 
 def main():
     batch = []
+    batch_counter = 1
+    
+    output_dir = "../batch_data"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
     
     consumer = KafkaConsumer(
         'Fraud_Detection', 
@@ -25,33 +33,42 @@ def main():
         batch.append(message.value)
         
         # Print message info (optional, for debugging)
-        print(f"Received: {message.value}")
+        print(f"Received: {message.value['ip_address']}")
         
         # Check if it's time to process the batch
         current_time = time.time()
         if current_time - start_time >= batch_time_limit:
             # Process the batch
-            process_batch(batch)
+            process_batch(batch, batch_counter, output_dir)
             
             # Clear the batch and reset the timer
             batch = []
             start_time = current_time
+            batch_counter += 1
 
-def process_batch(batch):
+def process_batch(batch, batch_num, output_dir):
     """
-    Process a batch of messages
+    Process a batch of messages and save to CSV
     """
     message_count = len(batch)
-    print(f"\n--- Processing batch of {message_count} messages ---")
+    print(f"\n--- Processing batch {batch_num} with {message_count} messages ---")
     
-    # Here you would typically:
-    # 1. Transform the data
-    # 2. Save to database
-    # 3. Generate analytics
-    # 4. etc.
+    if message_count == 0:
+        print("Empty batch, skipping...")
+        return
     
-    # For this example, we'll just print the number of messages
-    print(f"Processed batch containing {message_count} messages")
+    # Convert batch to DataFrame
+    df = pd.DataFrame(batch)
+    
+    # Generate filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{output_dir}/batch_{batch_num}_{timestamp}.csv"
+    
+    # Save to CSV
+    df.to_csv(filename, index=False)
+    print(f"Saved batch to: {filename}")
+    
+    print(f"Processed batch {batch_num} containing {message_count} messages")
     print("-----------------------------------\n")
 
 if __name__ == "__main__":

@@ -89,7 +89,7 @@ docker-compose down
 
 1. **Connection Issues**:
    - Ensure Docker containers are running
-   - Check that ports 9092 and 2181 are not being used by other applications
+   - Check that ports 29092 and 22181 are not being used by other applications
 
 2. **CSV File Not Found**:
    - Verify the path to your CSV file
