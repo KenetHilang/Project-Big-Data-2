@@ -1,5 +1,10 @@
 # Project-Big-Data-2: Fraud Detection with Kafka
 
+<div style="display: flex; align-items: center; gap: 20px;">
+  <img src="./assets/Kafka.png" alt="Kafka" height="200" />
+  <img src="./assets/Spark.png" alt="Spark" height="200" />
+</div>
+
 ## Group's Members
 | Name (Nama)           | Student ID (NRP)   |
 |----------------|--------------|
