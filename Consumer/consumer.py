@@ -33,7 +33,7 @@ def main():
         batch.append(message.value)
         
         # Print message info (optional, for debugging)
-        print(f"Received: {message.value['is_fraud']}")
+        print(f"Is it Fraud?: {message.value['is_fraud']}")
         
         # Check if it's time to process the batch
         current_time = time.time()
