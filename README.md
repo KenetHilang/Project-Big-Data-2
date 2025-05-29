@@ -63,9 +63,9 @@ This project implements a fraud detection system using Apache Kafka and Pyspark 
   - `financial_fraud_detection_dataset.csv`: Dataset that will be used for training the model
  
 ## Model Details
-1. Model 1: Menggunakan data selama 5 menit pertama.
-2. Model 2: Menggunakan data selama 5 menit kedua.
-3. Model 3: Menggunakan data selama 5 menit ketiga.
+1. Model 1: Using the first 5 minutes of data.
+2. Model 2: Using the next second 5 minutes of data.
+3. Model 3: Using the next third 5 minutes of data.
 
 ## Setup Instructions
 
