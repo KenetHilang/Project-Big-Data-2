@@ -14,7 +14,7 @@ def send_csv_to_kafka(file_path, topic_name):
         for row in csv_reader:
             producer.send(topic_name, value=row)
             print(f"Sent: {row}")
-            time.sleep(5)
+            time.sleep(0.005)
     producer.flush()
 
 if __name__ == '__main__':

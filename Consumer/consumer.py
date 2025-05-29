@@ -22,7 +22,7 @@ def main():
         value_deserializer=lambda x: json.loads(x.decode('utf-8'))
     )
     
-    batch_time_limit = 60
+    batch_time_limit = 300
     start_time = time.time()
     
     print("Consumer started. Collecting messages for 60-second batches...")
@@ -33,7 +33,7 @@ def main():
         batch.append(message.value)
         
         # Print message info (optional, for debugging)
-        print(f"Received: {message.value['ip_address']}")
+        print(f"Received: {message.value['is_fraud']}")
         
         # Check if it's time to process the batch
         current_time = time.time()
