@@ -21,7 +21,7 @@ This project implements a fraud detection system using Apache Kafka and Pyspark 
 - Python 3.8+
 - UV for python packages
    - use `pip install uv` to install uv, and then proceed with `uv sync`
-- Required Python packages: `kafka-python`
+- Required Python packages: `kafka-python`, `pyspark`, `joblib`, `pandas`, `scikit-learn`
 
 **Dataset**: https://www.kaggle.com/datasets/aryan208/financial-transactions-dataset-for-fraud-detection
 
