@@ -61,6 +61,11 @@ This project implements a fraud detection system using Apache Kafka and Pyspark 
   - `payment_channel_model/`: Model for predicting the payment channel
 - `data/`: Contains the dataset for training and streaming simulation
   - `financial_fraud_detection_dataset.csv`: Dataset that will be used for training the model
+ 
+## Model Details
+1. Model 1: Menggunakan data selama 5 menit pertama.
+2. Model 2: Menggunakan data selama 5 menit kedua.
+3. Model 3: Menggunakan data selama 5 menit ketiga.
 
 ## Setup Instructions
 
